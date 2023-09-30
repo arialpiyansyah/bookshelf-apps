@@ -14,7 +14,7 @@
     />
     <link rel="stylesheet" href="style.css" />
     <!-- Feather Icons -->
-    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
   </head>
 
   <body>
@@ -52,8 +52,8 @@
         </section>
       </aside>
 
-      <div class="toggle-side-bar">
-        <button href="#input" id="input"><i data-feather="menu"></i></button>
+      <div class="toggle-side-bar" id="input">
+        <button href="#input">>>></button>
       </div>
 
       <div class="shelfs-container">
@@ -73,18 +73,7 @@
             <h2>Belum selesai</h2>
 
             <div id="incompleteBookshelfList" class="book_list">
-              <!-- <article class="book_item">
-                <h3>Book Title</h3>
-                <p>Penulis: John Doe</p>
-                <p>Tahun: 2002</p>
-
-                <div class="action">
-                  <button class="green">
-                    <i data-feather="check-circle"></i> -->
-                  <!-- </button>
-                  <button class="red"><i data-feather="trash-2"></i></button>
-                </div>
-              </article> --> 
+             
             </div>
           </section>
 
@@ -92,22 +81,12 @@
             <h2>Selesai dibaca</h2>
 
             <div id="completeBookshelfList" class="book_list">
-              <!-- <article class="book_item">
-                <h3>Book Title</h3>
-                <p>Penulis: John Doe</p>
-                <p>Tahun: 2002</p>
-
-                <div class="action">
-                  <button class="green">
-                    <i data-feather="rotate-ccw"></i>
-                  </button>
-                  <button class="red"><i data-feather="trash-2"></i></button>
-                </div>
-              </article> -->
+              
             </div>
           </section>
         </div>
       </div>
+      <div id="toast" class="toast"></div>
     </main>
 
     <script>
@@ -115,14 +94,4 @@
     </script>
     <script src="main.js"></script>
   </body>
-
-  <!-- <footer class="footer">
-    <div class="credit">
-      <p>
-        Created with love ❤️ & coffee ☕ by
-        <a href="https://www.instagram.com/ibn_saifuddeen/">Ari Alpiyansyah</a>
-        | &copy; 2023.
-      </p>
-    </div>
-  </footer> -->
 </html>
