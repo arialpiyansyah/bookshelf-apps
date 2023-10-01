@@ -139,14 +139,15 @@ main {
   background-color: rgb(251, 255, 254);
   flex: 3;
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: column;
 }
 
 .search_section {
   display: flex;
   flex-direction: column;
+  flex-wrap: nowrap;
   align-items: center;
-  padding: 15px;
+  padding: 5px;
 }
 
 .search_section > h2 {
@@ -154,10 +155,10 @@ main {
 }
 
 .search_section > form {
-  padding: 10px;
+  padding: 15px;
   width: 100%;
   display: grid;
-  grid-template-columns: auto 1fr 0.2fr;
+  grid-template-columns: auto 1fr 0.1fr;
   grid-gap: 1px;
 }
 
@@ -344,6 +345,13 @@ p {
 
   .input_section > form > button {
     font-size: 80%;
+  }
+
+
+  .search_section > form {
+    padding: 10px;
+    gap: 1px;
+    display: inline;
   }
 
   .close-button-container {
