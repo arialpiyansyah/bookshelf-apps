@@ -25,13 +25,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const bookTitle = document.getElementById("inputBookTitle").value;
     const bookAuthor = document.getElementById("inputBookAuthor").value;
     const bookYear = document.getElementById("inputBookYear").value;
+    const inputIsCompleted = document.getElementById(
+      "inputBookIsComplete"
+    ).checked;
     const GeneratedBookID = generateBookID();
     const bookObject = generateBookObject(
       GeneratedBookID,
       bookTitle,
       bookAuthor,
       bookYear,
-      false
+      inputIsCompleted
     );
     books.push(bookObject);
     document.dispatchEvent(new Event(RENDER_EVENT));
@@ -118,18 +121,13 @@ document.addEventListener("DOMContentLoaded", function () {
         undoBookFromCompleted(bookObject.id, bookObject.title);
       });
       actionContainer.append(trashButton);
-      trashButton.addEventListener("click", function () {
-      });
       container.append(actionContainer);
     } else {
       actionContainer.append(checkButton);
-      actionContainer.append(trashButton);
       checkButton.addEventListener("click", function () {
         addCompletedRead(bookObject.id, bookObject.title);
       });
       actionContainer.append(trashButton);
-      trashButton.addEventListener("click", function () {
-      });
       container.append(actionContainer);
     }
     return container;
@@ -199,6 +197,34 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(function () {
       toastText.className = toastText.className.replace("show", "");
     }, 1500);
+  }
+
+  document
+    .getElementById("searchBook")
+    .addEventListener("input", function (event) {
+      searchBook();
+      event.preventDefault();
+    });
+  document
+    .getElementById("searchBook")
+    .addEventListener("click", function (event) {
+      searchBook();
+      event.preventDefault();
+    });
+
+  function searchBook() {
+    const searchBook = document
+      .getElementById("searchBookTitle")
+      .value.toLowerCase();
+    const bookList = document.querySelectorAll(".book_item");
+    for (let book of bookList) {
+      const title = book.firstElementChild.innerText.toLowerCase();
+      if (title.includes(searchBook)) {
+        book.style.display = "block";
+      } else {
+        book.style.display = "none";
+      }
+    }
   }
 
   const SAVE_EVENT = "save-book";

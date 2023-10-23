@@ -158,7 +158,7 @@ main {
   padding: 15px;
   width: 100%;
   display: grid;
-  grid-template-columns: auto 1fr 0.1fr;
+  grid-template-columns: auto 1fr;
   grid-gap: 1px;
 }
 
@@ -170,14 +170,6 @@ main {
 .search_section > form > input {
   padding: 5px;
   border-radius: 5px;
-}
-
-.search_section > form > button {
-  background-color: green;
-  color: white;
-  border: 0;
-  border-radius: 5px;
-  cursor: pointer;
 }
 
 .book_shelf_container {
@@ -207,16 +199,12 @@ main {
   border: 1px solid black;
   border-radius: 5px;
   background-color: white;
+  margin: 2px;
 }
 
 .book_shelf > .book_list > .book_item > h3,
 p {
   margin: 1px 0;
-}
-
-.book_shelf > .book_list > .book_item > .action > .red {
-  background-color: darkred;
-  color: white;
 }
 
 .action {
