@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     addBook();
   });
 
-  //  Membuat sidebar muncul dan tersembunyi
+  // Memunculkan dan menyembunyikan sidebar
   const sidebar = document.getElementById("sidebar");
   const toggleSidebar = document.getElementById("input");
   const closeButton = document.getElementById("closeButton");
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     toggleSidebar.classList.remove("hiddenMode");
   });
 
-  // Membuat fungsi untuk menambahkan data buku
+  // Function untuk mengambil nilai input
   function addBook() {
     const bookTitle = document.getElementById("inputBookTitle").value;
     const bookAuthor = document.getElementById("inputBookAuthor").value;
@@ -58,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
   }
 
+  // Event untuk menambahkan element ke dalam book list
   document.addEventListener(RENDER_EVENT, function () {
     const unReadBookList = document.getElementById("incompleteBookshelfList");
     unReadBookList.innerHTML = "";
@@ -76,6 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  // Function untuk membuat manipulasi element html
   function makeBook(bookObject) {
     const textBookTitle = document.createElement("h3");
     textBookTitle.innerText = bookObject.title;
@@ -133,6 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return container;
   }
 
+  // Function untuk memindahkan buku ke rak selesai dibaca
   function addCompletedRead(bookId, title) {
     const bookTarget = findBook(bookId);
     if (bookTarget == null) return;
@@ -149,6 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 1500);
   }
 
+  // Function untuk menghapus buku dari rak
   function deleteBook(bookId, title) {
     const bookTarget = findBookIndex(bookId);
     if (bookTarget === -1) return;
@@ -164,6 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 1500);
   }
 
+  // Function untuk mengembalikan buku ke rak belum selesai dibaca
   function undoBookFromCompleted(bookId) {
     const bookTarget = findBook(bookId);
     if (bookTarget == null) return;
@@ -172,6 +177,7 @@ document.addEventListener("DOMContentLoaded", function () {
     saveData();
   }
 
+  // Function untuk mencari data buku
   function findBook(bookId) {
     for (const bookItem of books) {
       if (bookItem.id === bookId) {
@@ -190,6 +196,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return -1;
   }
 
+  // Function untuk menampilkan toast message
   function toastMessage(bookTitle) {
     const toastText = document.getElementById("toast");
     toastText.className = "toast show";
@@ -199,6 +206,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 1500);
   }
 
+  // Menambahkan event dan function untuk fitur pencarian buku berdasarkan judul
   document
     .getElementById("searchBook")
     .addEventListener("input", function (event) {
@@ -227,6 +235,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // Membuat local storage dan menyimpan dan men-load data buku dari/ke dalamnya
   const SAVE_EVENT = "save-book";
   const STORAGE_KEY = "BOOKSHELF_APPS";
 
